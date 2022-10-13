@@ -1,35 +1,42 @@
 
-n_list = []
-m_list = []
-
-
 n_number = int(input())
-n_list = [n_number]
-n_list = list(map(int,n_list))
-
+n_arr = list(map(int,input().split(' ')))
+n_arr.sort()
 
 
 m_number = int(input())
-m_list = [m_number]
-m_list = list(map(int,m_list))
+m_arr = list(map(int,input().split(' ')))
 
 
-def binary_search(arr,target):
-    arr.sort()
+def binary_search(target):
     start = 0
-    last=len(arr)-1
+    last=n_number-1
     
     
-    while(start<=last):
+    while start<=last:
         mid=(start+last)//2
         
-        if(arr[mid]==target):
-            return mid
+        if n_arr[mid]==target:
+            return 1
         
-        elif(arr[mid]>target):
-            last=n_list[mid]-1
+        if n_arr[mid]>target:
+            last=n_arr[mid]-1
             
-        elif(arr[mid]<target):
-            start=n_list[mid]+1
+        else:
+            start=n_arr[mid]+1
             
     return 0    
+
+for n in m_arr:
+    print(binary_search(n))
+    
+
+                        
+    
+
+
+
+   
+    
+    
+    
